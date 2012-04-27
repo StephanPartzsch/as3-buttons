@@ -23,16 +23,16 @@ The most important classes are:
 The timeline based button graphics have to contain some required labels. A `FrameButton` representation has to contain "default" as a label on the timeline. And for a `ToggleFrameButton` it has to be "default" as well as "selected_default". 
    
 Typical timeline representation of a `FrameButton`:   
-![Typical timeline representation of a FrameButton](https://github.com/StephanPartzsch/as3-buttons/raw/master/example/asset_example/graphic/typical_frame_button.png?raw=true  "Typical timeline representation of a FrameButton")
+![Typical timeline representation of a FrameButton](https://github.com/StephanPartzsch/as3-buttons/blob/develop/example/asset_example/graphic/typical_frame_button.png?raw=true  "Typical timeline representation of a FrameButton")
    
 Simple timeline representation of a `FrameButton`:  
-![Simple timeline representation of a FrameButton](https://github.com/StephanPartzsch/as3-buttons/raw/master/example/asset_example/graphic/simple_frame_button.png  "Simple timeline representation of a FrameButton")
+![Simple timeline representation of a FrameButton](https://github.com/StephanPartzsch/as3-buttons/blob/develop/example/asset_example/graphic/simple_frame_button.png?raw=true  "Simple timeline representation of a FrameButton")
    
 Typical timeline representation of a `ToggleFrameButton`:  
-![Typical timeline representation of a ToggleFrameButton](https://github.com/StephanPartzsch/as3-buttons/raw/master/example/asset_example/graphic/typical_toggle_frame_button.png?raw=true  "Typical timeline representation of a ToggleFrameButton")
+![Typical timeline representation of a ToggleFrameButton](https://github.com/StephanPartzsch/as3-buttons/blob/develop/example/asset_example/graphic/typical_toggle_frame_button.png?raw=true  "Typical timeline representation of a ToggleFrameButton")
    
 Simple timeline representation of a `ToggleFrameButton`:  
-![Simple timeline representation of a ToggleFrameButton](https://github.com/StephanPartzsch/as3-buttons/raw/master/example/asset_example/graphic/simple_toggle_frame_button.png?raw=true  "Simple timeline representation of a ToggleFrameButton")
+![Simple timeline representation of a ToggleFrameButton](https://github.com/StephanPartzsch/as3-buttons/blob/develop/example/asset_example/graphic/simple_toggle_frame_button.png?raw=true  "Simple timeline representation of a ToggleFrameButton")
    
 
 

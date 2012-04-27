@@ -55,7 +55,7 @@ package de.stephanpartzsch.ui.button
 	 * 
 	 * @see de.stephanpartzsch.ui.button.FrameButton
 	 */
-	public class ToggleFrameButton extends FrameButton
+	public class ToggleFrameButton extends FrameButton implements IFrameButton
 	{
 		private var _selected : Boolean;
 		
@@ -172,7 +172,7 @@ package de.stephanpartzsch.ui.button
 		 * 
 		 * @param value Whether or not the ToggleFrameButton is selected.
 		 */
-		public function set selected( selected : Boolean ) : void
+		public override function set selected( selected : Boolean ) : void
 		{
 			if ( _selected == selected )
 				return;
@@ -183,10 +183,10 @@ package de.stephanpartzsch.ui.button
 		
 		/**
 		 * Returns the selected state of the ToggleFrameButton.
-		 *
-		 * @return Whether or not the ToggleFrameButton is selected.
+		 * 
+		 * @return value Whether or not the ToggleFrameButton is selected.
 		 */
-		public function get selected() : Boolean
+		public override function get selected() : Boolean
 		{
 			return _selected;
 		}

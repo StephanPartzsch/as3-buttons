@@ -73,7 +73,7 @@ package de.stephanpartzsch.ui.button.label
 			this.movieClip = movieClip;
 			initialize();
 		}
-		
+	
 		/**
 		 * Checks whether or not a <code>Label</code> with the given labelName exists.
 		 * 

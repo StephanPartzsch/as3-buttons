@@ -3,15 +3,17 @@ package de.stephanpartzsch.ui.button.event
 	import flash.events.Event;
 
 	/**
-	 * A FrameLabelEvent object is dispatched into the event flow whenever frame label events occur. 
-	 * A frame label event is generated when the start or the end of a label of a MovieClip inside 
-	 * any instance of type <code>FrameButton</code> is reached.
+	 * A FrameLabelEvent object is dispatched into the event flow whenever 
+	 * frame label events occur. A frame label event is generated when the start 
+	 * or the end of a label of a MovieClip inside any instance of type 
+	 * <code>FrameButton</code> is reached.
 	 */
 	public class FrameLabelEvent extends Event
 	{
 		/**
 		 * Defines the value of the type property of a frame label start event object. 
 		 * It is fired if the first frame of a label is reached.
+		 * 
 		 * <p>This event contains the name of the current label as 
 		 * <code>currentFrameLabelName</code>.</p>
 		 */
@@ -20,6 +22,7 @@ package de.stephanpartzsch.ui.button.event
 		/**
 		 * Defines the value of the type property of a frame label end event object. 
 		 * It is fired if the last frame of a label is reached.
+		 * 
 		 * <p>This event contains the name of the current label as 
 		 * <code>currentFrameLabelName</code>.</p>
 		 */
@@ -28,7 +31,7 @@ package de.stephanpartzsch.ui.button.event
 		private var _currentFrameLabelName : String;
 		
 		/**
-		 * Creates an FrameLabelEvent object to pass as a parameter to event listeners.
+		 * Creates a FrameLabelEvent object to pass as a parameter to event listeners.
 		 * 
 		 * @param type The type of the event, accessible as <code>FrameLabelEvent.type</code>.
 		 * @param currentFrameLabelName The name of the current label in which the first frame (start) or the last frame (end) was detected.
@@ -42,7 +45,8 @@ package de.stephanpartzsch.ui.button.event
 		}
 
 		/**
-		 * The name of the current label in which the first frame (start) or the last frame (end) was detected.
+		 * The name of the current label in which the first frame (start) 
+		 * or the last frame (end) was detected.
 		 */
 		public function get currentFrameLabelName() : String
 		{
@@ -50,7 +54,8 @@ package de.stephanpartzsch.ui.button.event
 		}
 		
 		/**
-		 * Creates a copy of the MouseEvent object and sets the value of each property to match that of the original.
+		 * Creates a copy of the MouseEvent object and sets the value of each property to
+		 * match that of the original.
 		 * 
 		 * @return A new MouseEvent object with property values that match those of the original.
 		 */

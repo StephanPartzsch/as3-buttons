@@ -1,6 +1,7 @@
 package de.stephanpartzsch.ui.button.example
 {
 	import de.stephanpartzsch.ui.button.FrameButton;
+	import de.stephanpartzsch.ui.button.LabeledFrameButton;
 	import de.stephanpartzsch.ui.button.ToggleFrameButton;
 
 	import flash.display.Loader;
@@ -18,6 +19,7 @@ package de.stephanpartzsch.ui.button.example
 	{
 		private var actionButton : Sprite;
 		private var frameButton : FrameButton;
+		private var labeledFrameButton : LabeledFrameButton;
 		private var toggleFrameButton : ToggleFrameButton;
 		
 		public function FrameButtonExampleSwf()
@@ -36,6 +38,7 @@ package de.stephanpartzsch.ui.button.example
 		{
 			buildActionButton();
 			buildFrameButton();
+			buildLabelFrameButton();
 			buildToggleFrameButton();
 		}
 
@@ -65,6 +68,7 @@ package de.stephanpartzsch.ui.button.example
 		private function toggleEnableButtons( event : MouseEvent ) : void
 		{
 			frameButton.enabled = !frameButton.enabled;
+			labeledFrameButton.enabled = !labeledFrameButton.enabled;
 			toggleFrameButton.enabled = !toggleFrameButton.enabled;
 		}
 
@@ -78,12 +82,24 @@ package de.stephanpartzsch.ui.button.example
 			addChild( frameButton );
 		}
 		
+		private function buildLabelFrameButton() : void
+		{
+			var buttonClass : Class = getDefinitionByName( "de.stephanpartzsch.ui.button.graphic.ExampleLabelButton" ) as Class;
+			var frameButton : FrameButton = FrameButton.createFromClass( buttonClass );
+			
+			labeledFrameButton = new LabeledFrameButton( frameButton, "Test" );
+			labeledFrameButton.x = 200;
+			labeledFrameButton.y = 150;
+	
+			addChild( labeledFrameButton );
+		}
+		
 		private function buildToggleFrameButton() : void
 		{
 			var buttonClass : Class = getDefinitionByName( "de.stephanpartzsch.ui.button.graphic.ExampleToggleButton" ) as Class;
 			toggleFrameButton = ToggleFrameButton.createFromClass( buttonClass, true );
 			toggleFrameButton.x = 200;
-			toggleFrameButton.y = 150;
+			toggleFrameButton.y = 200;
 			toggleFrameButton.addEventListener( MouseEvent.CLICK, handleToggleFrameButtonClicked );
 	
 			addChild( toggleFrameButton );
