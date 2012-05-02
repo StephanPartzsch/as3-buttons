@@ -3,7 +3,7 @@ package de.stephanpartzsch.ui.button.example
 	import de.stephanpartzsch.ui.button.FrameButton;
 	import de.stephanpartzsch.ui.button.ToggleFrameButton;
 	import de.stephanpartzsch.ui.button.graphic.ExampleButton;
-	import de.stephanpartzsch.ui.button.graphic.ExampleToggleButton;
+	import de.stephanpartzsch.ui.button.graphic.ExampleSimpleToggleButton;
 
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
@@ -86,7 +86,7 @@ package de.stephanpartzsch.ui.button.example
 		
 		private function buildToggleFrameButton() : void
 		{
-			toggleFrameButton = ToggleFrameButton.createFromClass( ExampleToggleButton, true );
+			toggleFrameButton = ToggleFrameButton.createFromClass( ExampleSimpleToggleButton, true );
 			toggleFrameButton.x = 200;
 			toggleFrameButton.y = 150;
 			

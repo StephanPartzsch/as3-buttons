@@ -319,7 +319,11 @@ package de.stephanpartzsch.ui.button
 			addEventListener( MouseEvent.MOUSE_UP, handleMouseUp );
 			
 			if ( useHeavyClickPrevention )
-				addEventListener( MouseEvent.CLICK, handleMouseClick );
+			{
+				addEventListener( MouseEvent.MOUSE_DOWN, handleMouseEvent, false, 999 );
+				addEventListener( MouseEvent.MOUSE_UP, handleMouseEvent, false, 999 );
+				addEventListener( MouseEvent.CLICK, handleMouseEvent, false, 999 );
+			}
 		}
 
 		/**
@@ -331,7 +335,13 @@ package de.stephanpartzsch.ui.button
 			removeEventListener( MouseEvent.ROLL_OUT, handleMouseRollOut );
 			removeEventListener( MouseEvent.MOUSE_DOWN, handleMouseDown );
 			removeEventListener( MouseEvent.MOUSE_UP, handleMouseUp );
-			removeEventListener( MouseEvent.CLICK, handleMouseClick );
+			
+			if ( useHeavyClickPrevention )
+			{
+				removeEventListener( MouseEvent.MOUSE_DOWN, handleMouseEvent, false );
+				removeEventListener( MouseEvent.MOUSE_UP, handleMouseEvent, false );
+				removeEventListener( MouseEvent.CLICK, handleMouseEvent, false );
+			}
 		}
 
 		/**
@@ -391,9 +401,12 @@ package de.stephanpartzsch.ui.button
 		 * 
 		 * @param event The MouseEvent that occurred.
 		 */
-		protected function handleMouseClick( event : MouseEvent ) : void
+		protected function handleMouseEvent( event : MouseEvent ) : void
 		{
 			checkToStopMouseEvent( event );
+			
+			if( event.type == MouseEvent.CLICK )
+				lastMouseClickTime = getTimer();
 		}
 		
 		/**
@@ -476,8 +489,6 @@ package de.stephanpartzsch.ui.button
 
 			if( lastMouseClickTime > 0 && currentTime < lastMouseClickTime + CLICK_PREVENTION_TIME  )
 				event.stopImmediatePropagation();
-
-			lastMouseClickTime = currentTime;
 		}
 
 		private function addFrameLabelEventListener() : void
