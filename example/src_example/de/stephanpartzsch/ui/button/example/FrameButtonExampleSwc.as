@@ -5,7 +5,7 @@ package de.stephanpartzsch.ui.button.example
 	import de.stephanpartzsch.ui.button.ToggleFrameButton;
 	import de.stephanpartzsch.ui.button.graphic.ExampleButton;
 	import de.stephanpartzsch.ui.button.graphic.ExampleLabelButton;
-	import de.stephanpartzsch.ui.button.graphic.ExampleToggleButton;
+	import de.stephanpartzsch.ui.button.graphic.ExampleSimpleToggleButton;
 
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
