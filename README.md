@@ -28,16 +28,16 @@ The most important classes are:
 The timeline based button graphics have to contain some required labels. A `FrameButton` representation has to contain "default" as a label on the timeline. And for a `ToggleFrameButton` it has to be "default" as well as "selected_default". 
    
 Typical timeline representation of a `FrameButton`:   
-![Typical timeline representation of a FrameButton](https://github.com/StephanPartzsch/as3-buttons/blob/develop/example/asset_example/graphic/typical_frame_button.png?raw=true  "Typical timeline representation of a FrameButton")
+![Typical timeline representation of a FrameButton](https://github.com/StephanPartzsch/as3-buttons/tree/master/example/asset_example/graphic/typical_frame_button.png?raw=true  "Typical timeline representation of a FrameButton")
    
 Simple timeline representation of a `FrameButton`:  
-![Simple timeline representation of a FrameButton](https://github.com/StephanPartzsch/as3-buttons/blob/develop/example/asset_example/graphic/simple_frame_button.png?raw=true  "Simple timeline representation of a FrameButton")
+![Simple timeline representation of a FrameButton](https://github.com/StephanPartzsch/as3-buttons/tree/master/example/asset_example/graphic/simple_frame_button.png?raw=true  "Simple timeline representation of a FrameButton")
    
 Typical timeline representation of a `ToggleFrameButton`:  
-![Typical timeline representation of a ToggleFrameButton](https://github.com/StephanPartzsch/as3-buttons/blob/develop/example/asset_example/graphic/typical_toggle_frame_button.png?raw=true  "Typical timeline representation of a ToggleFrameButton")
+![Typical timeline representation of a ToggleFrameButton](https://github.com/StephanPartzsch/as3-buttons/tree/master/example/asset_example/graphic/typical_toggle_frame_button.png?raw=true  "Typical timeline representation of a ToggleFrameButton")
    
 Simple timeline representation of a `ToggleFrameButton`:  
-![Simple timeline representation of a ToggleFrameButton](https://github.com/StephanPartzsch/as3-buttons/blob/develop/example/asset_example/graphic/simple_toggle_frame_button.png?raw=true  "Simple timeline representation of a ToggleFrameButton")
+![Simple timeline representation of a ToggleFrameButton](https://github.com/StephanPartzsch/as3-buttons/tree/master/example/asset_example/graphic/simple_toggle_frame_button.png?raw=true  "Simple timeline representation of a ToggleFrameButton")
    
 
 
@@ -45,27 +45,28 @@ Simple timeline representation of a `ToggleFrameButton`:
 
 *FrameButton*
 
-			var frameButton : FrameButton = FrameButton.createFromClass( ExampleButton );
-			addChild( frameButton );
+	var frameButton : FrameButton = FrameButton.createFromClass( ExampleButton );
+	addChild( frameButton );
    
 *ToggleFrameButton*
 
-			var toggleFrameButton : ToggleFrameButton = ToggleFrameButton.createFromClass( ExampleToggleButton );
-			addChild( toggleFrameButton );
+	var toggleFrameButton : ToggleFrameButton = ToggleFrameButton.createFromClass( ExampleToggleButton );
+	addChild( toggleFrameButton );
 
 *LabeledFrameButton*
 
-			var labeledFrameButton : LabeledFrameButton = LabeledFrameButton.createFromClass( ExampleLabelButton, "Test" );
-			addChild( labeledFrameButton );
+	var labeledFrameButton : LabeledFrameButton = LabeledFrameButton.createFromClass( ExampleLabelButton, "Test" );
+	addChild( labeledFrameButton );
    
 *LabeledToggleFrameButton*
 
-			var labeledToggleFrameButton : LabeledToggleFrameButton = LabeledToggleFrameButton.createFromClass( ExampleLabelButton, "Test" );
-			addChild( labeledToggleFrameButton );
+	var labeledToggleFrameButton : LabeledToggleFrameButton = LabeledToggleFrameButton.createFromClass( ExampleLabelButton, "Test" );
+	addChild( labeledToggleFrameButton );
 
    
 The `FrameButton`, `ToggleFrameButton`, `LabeledFrameButton` as well as the `LabeledToggleFrameButton` can be used like normal MovieClips because nearly everything is delegated to the graphical button representation which is managed these button classes.
 
-			frameButton.x = 100;
-			frameButton.rotationX = 20;
-			frameButton.addEventListener( MouseEvent.CLICK, handleFrameButtonClicked );
+	frameButton.x = 100;
+	frameButton.rotationX = 20;
+	frameButton.addEventListener( MouseEvent.CLICK, handleFrameButtonClicked );
+	
