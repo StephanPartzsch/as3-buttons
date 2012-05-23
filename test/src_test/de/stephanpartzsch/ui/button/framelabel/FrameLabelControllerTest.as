@@ -1,17 +1,14 @@
 package de.stephanpartzsch.ui.button.framelabel
 {
 	import de.stephanpartzsch.ui.button.event.FrameLabelEvent;
+	import de.stephanpartzsch.ui.button.framelabel.enum.LabelName;
 	import de.stephanpartzsch.ui.button.graphic.StandardTestButton;
-	import de.stephanpartzsch.ui.button.label.FrameLabelController;
-	import de.stephanpartzsch.ui.button.label.enum.LabelName;
-
+	import flash.display.MovieClip;
 	import org.flexunit.asserts.assertEquals;
 	import org.flexunit.asserts.assertFalse;
 	import org.flexunit.asserts.assertTrue;
 	import org.flexunit.async.Async;
 
-	import flash.display.MovieClip;
-	
 	public class FrameLabelControllerTest
 	{
 		private var movieClip : MovieClip;

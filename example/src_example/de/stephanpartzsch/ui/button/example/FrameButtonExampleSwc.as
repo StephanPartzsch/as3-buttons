@@ -1,9 +1,11 @@
 package de.stephanpartzsch.ui.button.example
 {
 	import de.stephanpartzsch.ui.button.FrameButton;
+	import de.stephanpartzsch.ui.button.LabeledFrameButton;
 	import de.stephanpartzsch.ui.button.ToggleFrameButton;
 	import de.stephanpartzsch.ui.button.graphic.ExampleButton;
-	import de.stephanpartzsch.ui.button.graphic.ExampleSimpleToggleButton;
+	import de.stephanpartzsch.ui.button.graphic.ExampleLabelButton;
+	import de.stephanpartzsch.ui.button.graphic.ExampleToggleButton;
 
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
@@ -13,13 +15,16 @@ package de.stephanpartzsch.ui.button.example
 	public class FrameButtonExampleSwc extends Sprite
 	{
 		private var actionButton : Sprite;
+		
 		private var frameButton : FrameButton;
+		private var labeledFrameButton : LabeledFrameButton;
 		private var toggleFrameButton : ToggleFrameButton;
 		
 		public function FrameButtonExampleSwc()
 		{
 			buildActionButton();
 			buildFrameButton();
+			buildLabeledFrameButton();
 			buildToggleFrameButton();
 		}
 
@@ -49,6 +54,7 @@ package de.stephanpartzsch.ui.button.example
 		private function toggleEnableButtons( event : MouseEvent ) : void
 		{
 			frameButton.enabled = !frameButton.enabled;
+			labeledFrameButton.enabled = !labeledFrameButton.enabled;
 			toggleFrameButton.enabled = !toggleFrameButton.enabled;
 		}
 
@@ -58,7 +64,7 @@ package de.stephanpartzsch.ui.button.example
 			frameButton.x = 200;
 			frameButton.y = 100;
 			frameButton.addEventListener( MouseEvent.CLICK, handleFrameButtonClicked );
-	
+
 			addChild( frameButton );
 		}
 
@@ -84,11 +90,20 @@ package de.stephanpartzsch.ui.button.example
 			frameButton = null;
 		}
 		
+		private function buildLabeledFrameButton() : void
+		{
+			labeledFrameButton = LabeledFrameButton.createFromClass( ExampleLabelButton, "Test" );
+			labeledFrameButton.x = 200;
+			labeledFrameButton.y = 150;
+	
+			addChild( labeledFrameButton );
+		}
+		
 		private function buildToggleFrameButton() : void
 		{
 			toggleFrameButton = ToggleFrameButton.createFromClass( ExampleSimpleToggleButton, true );
 			toggleFrameButton.x = 200;
-			toggleFrameButton.y = 150;
+			toggleFrameButton.y = 200;
 			
 			addChild( toggleFrameButton );
 		}

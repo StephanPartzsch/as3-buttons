@@ -22,7 +22,7 @@
  * @author Stephan Partzsch
  * http://www.stephan-partzsch.de
  */
-package de.stephanpartzsch.ui.button.label.enum
+package de.stephanpartzsch.ui.button.framelabel.enum
 {
 	/**
 	 * String constants that are used to reflect the label names which are used in <code>FrameButton</code> and <code>ToggleFrameButton</code> instances.

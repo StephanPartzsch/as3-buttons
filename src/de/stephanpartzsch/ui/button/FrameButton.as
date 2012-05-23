@@ -24,16 +24,16 @@
  */
 package de.stephanpartzsch.ui.button
 {
-	import de.stephanpartzsch.ui.button.event.FrameButtonEvent;
 	import de.stephanpartzsch.ui.button.error.MissingLabelError;
+	import de.stephanpartzsch.ui.button.event.FrameButtonEvent;
 	import de.stephanpartzsch.ui.button.event.FrameLabelEvent;
-	import de.stephanpartzsch.ui.button.label.FrameLabelController;
-	import de.stephanpartzsch.ui.button.label.enum.LabelName;
+	import de.stephanpartzsch.ui.button.framelabel.FrameLabelController;
+	import de.stephanpartzsch.ui.button.framelabel.enum.LabelName;
 	import de.stephanpartzsch.ui.shared.MovieClipDelegator;
-
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
 	import flash.utils.getTimer;
+
 	
 	/**
 	 * Dispatched when the enabled state of the <code>FrameButton</code> 
@@ -76,7 +76,7 @@ package de.stephanpartzsch.ui.button
 	 * 	<li><i>disabled:</i>  (optional) defines the disabled state of the button</li>
 	 * </ul>
 	 */
-	public class FrameButton extends MovieClipDelegator
+	public class FrameButton extends MovieClipDelegator implements IFrameButton
 	{	
 		/**
 		 * Defines waiting time before the next mouse click is accepted.
@@ -224,6 +224,43 @@ package de.stephanpartzsch.ui.button
 				enableButton();
 			else
 				disableButton();
+		}
+		
+		/**
+		 * Does nothing because the FrameButton does not handle a selected state.
+		 * Use <code>ToggleFrameButton</code> instead.
+		 * 
+		 * <p> This property exists because of the <code>IFrameButton</code> interface.</p>
+		 * 
+		 * @see de.stephanpartzsch.ui.button.IFrameButton
+		 * @see de.stephanpartzsch.ui.button.ToggleFrameButton
+		 */	
+		public function set selected( selected : Boolean ) : void
+		{
+		}
+		
+		/**
+		 * Returns always <code>false</code> because the FrameButton does not handle a selected state.
+		 * Use <code>ToggleFrameButton</code> instead.
+		 * 
+		 * <p> This property exists because of the <code>IFrameButton</code> interface.</p>
+		 * 
+		 * @see de.stephanpartzsch.ui.button.IFrameButton
+		 * @see de.stephanpartzsch.ui.button.ToggleFrameButton
+		 */
+		public function get selected() : Boolean
+		{
+			return false;
+		}
+
+		/**
+		 * Returns the graphical representation of the FrameButton.
+		 * 
+		 * @return The graphical representation of the FrameButton.
+		 */		
+		public function get graphicalButtonInstance() : MovieClip
+		{
+			return movieClip;
 		}
 
 		/**

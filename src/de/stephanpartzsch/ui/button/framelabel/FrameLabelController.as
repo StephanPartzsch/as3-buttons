@@ -22,7 +22,7 @@
  * @author Stephan Partzsch
  * http://www.stephan-partzsch.de
  */
-package de.stephanpartzsch.ui.button.label
+package de.stephanpartzsch.ui.button.framelabel
 {
 	import de.stephanpartzsch.ui.button.event.FrameLabelEvent;
 
@@ -73,7 +73,7 @@ package de.stephanpartzsch.ui.button.label
 			this.movieClip = movieClip;
 			initialize();
 		}
-		
+	
 		/**
 		 * Checks whether or not a <code>Label</code> with the given labelName exists.
 		 * 

@@ -1,7 +1,6 @@
 package de.stephanpartzsch.ui.button.framelabel
 {
 	import org.flexunit.asserts.assertEquals;
-	import de.stephanpartzsch.ui.button.label.Label;
 	
 	public class LabelTest
 	{

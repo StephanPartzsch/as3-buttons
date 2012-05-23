@@ -1,0 +1,181 @@
+/**
+ * Copyright (c) 2012 Stephan Partzsch
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *  
+ * @author Stephan Partzsch
+ * http://www.stephan-partzsch.de
+ */
+package de.stephanpartzsch.ui.button
+{
+	import de.stephanpartzsch.ui.button.labeltext.LabelTextController;
+	import flash.display.MovieClip;
+
+	/**
+	 * The <code>LabeledFrameButton</code> is used to handle a button whose 
+	 * visual states are represented by timeline animations. In addition to the 
+	 * functionality of the <code>FrameButton</code> it controlls a label text field.
+	 * 
+	 * <p>The TextField has to have the name <b>labelText</b>. It is possible to place 
+	 * this TextField directly on the timeline or wrap it in an other MovieClip named 
+	 * <b>textContainer</b>.</p>
+	 * <p>Moreover the label text can be multilined. If the label text has only one 
+	 * line, the vertical position can be adjusted with the property 
+	 * <code>singleLineOffsetY</code>. The default value is 7.</p>
+	 * 
+	 * @see de.stephanpartzsch.ui.button.FrameButton
+	 */
+	public class LabeledFrameButton extends FrameButton
+	{
+		private var labelDecorator : LabelTextController;
+		
+		/**
+		 * Creates a new instance of type <code>LabeledFrameButton</code> with an instance 
+		 * of the given buttonClass.
+		 * 
+		 * <p>The instance of the given buttonClass (the class should subclass 
+		 * <code>MovieClip</code>) has to contain all the required labels. It will be 
+		 * added to the display list of the <code>LabeledFrameButton</code> instance. Only the 
+		 * <code>LabeledFrameButton</code> instance itself has to be added to a display list 
+		 * to make the button visible.</p>
+		 * 
+		 * <p>Required labels on timeline:</p>
+		 * 
+		 * <ul>
+		 * 	<li><i>default:</i> defines the 'common' state of the button</li> 
+		 * </ul> 
+		 * 
+		 * <p>All MovieClip based interaction with the <code>LabeledFrameButton</code> instance 
+		 * will be delegated to the instance of the given buttonClass.</p>
+		 * 
+		 * <p>Optionally a heavy click protection can be enabled. This is done by waiting 
+		 * for a specified time (<code>CLICK_PREVENTION_TIME</code>) after each mouse click. 
+		 * Not until the end of the waiting time the next mouse click is accepted.</p>
+		 * 
+		 * <p>The TextField has to have the name <b>labelText</b>. It is possible to place 
+		 * this TextField directly on the timeline or wrap it in an other MovieClip named 
+		 * <b>textContainer</b>.</p>
+		 * 
+		 * @param buttonClass An instance of this class will be used with the new <code>LabeledFrameButton</code> instance.
+		 * @param useHeavyClickPrevention Whether or not prevent heavy clicking. Default is <code>false</code>.
+		 *
+		 * @return A new instance of type <code>LabeledFrameButton</code>.
+		 * 
+		 * @throws de.stephanpartzsch.ui.button.error.MissingLabelError If one or more required lab is missing
+		 * @throws ReferenceError If no text field can be found in the given MovieClip instance.
+		 */
+		public static function createFromClass( buttonClass : Class, label : String = "", multilineEnabled : Boolean = false, useHeavyClickPrevention : Boolean = false ) : LabeledFrameButton
+		{
+			var buttonInstance : MovieClip = new buttonClass();
+			
+			return new LabeledFrameButton( buttonInstance, label, multilineEnabled, useHeavyClickPrevention, true );
+		}
+		
+		/**
+		 * Creates a new instance of type <code>LabeledFrameButton</code> with the given buttonInstance. 
+		 * 
+		 * <p>The buttonInstance has to contain all the required labels and will not be added 
+		 * automatically to any display list. Therefore this object has to be added manually to a 
+		 * display list to make the button visible.</p>
+		 * 
+		 * <p>Required labels on timeline:</p>
+		 * 
+		 * <ul>
+		 * 	<li><i>default:</i> defines the 'common' state of the button</li>
+		 * </ul> 
+		 * 
+		 * <p>All MovieClip based interaction with the <code>LabeledFrameButton</code> instance 
+		 * will be delegated to the buttonInstance.</p>
+		 * 
+		 * <p>Optionally a heavy click protection can be enabled. This is done by waiting 
+		 * for a specified time (<code>CLICK_PREVENTION_TIME</code>) after each mouse click. 
+		 * Not until the end of the waiting time the next mouse click is accepted.</p>
+		 * 
+		 * <p>The TextField has to have the name <b>labelText</b>. It is possible to place 
+		 * this TextField directly on the timeline or wrap it in an other MovieClip named 
+		 * <b>textContainer</b>.</p>
+		 * 
+		 * @param buttonInstance The object that will be used with the new <code>LabeledFrameButton</code> instance.
+		 * @param useHeavyClickPrevention Whether or not prevent heavy clicking. Default is <code>false</code>.
+		 *
+		 * @return A new instance of type <code>LabeledFrameButton</code>.
+		 * 
+		 * @throws de.stephanpartzsch.ui.button.error.MissingLabelError If one or more required lab is missing.
+		 * @throws ArgumentError If the given buttonInstance is <code>null</code>.
+		 * @throws ReferenceError If no text field can be found in the given MovieClip instance.
+		 */
+		public static function createFromInstance( buttonInstance : MovieClip, label : String = "", multilineEnabled : Boolean = false, useHeavyClickPrevention : Boolean = false ) : LabeledFrameButton
+		{
+			return new LabeledFrameButton( buttonInstance, label, multilineEnabled, useHeavyClickPrevention, false );
+		}
+		
+		/**
+		 * Creates a new instance of type <code>LabeledFrameButton</code> with the given buttonInstance.
+		 * 
+		 * @param buttonInstance The object that will be used with the new <code>LabeledFrameButton</code> instance.
+		 * @param label The label text that is to be used in the text field of <code>buttonInstance</code>.
+		 * @param multilineEnabled Whether or not the label text is to be used as multiline text. Default is <code>false</code>.
+		 * @param heavyClickProtectionEnabled Whether or not prevent heavy clicking. Default is <code>false</code>.
+		 * @param addToDisplayList Whether or not adding the given buttonInstance to the display list of this LabeledFrameButton. Default is <code>false</code>.
+		 * 
+		 * @throws de.stephanpartzsch.ui.button.error.MissingLabelError If one or more required lab is missing
+		 * @throws ReferenceError If no text field can be found in the given MovieClip instance.
+		 */
+		public function LabeledFrameButton( buttonInstance : MovieClip, label : String = "", multilineEnabled : Boolean = false, heavyClickProtectionEnabled : Boolean = false, addToDisplayList : Boolean = false )
+		{
+			super( buttonInstance, heavyClickProtectionEnabled, addToDisplayList );	
+			labelDecorator = new LabelTextController( buttonInstance, label, multilineEnabled );
+		}
+		
+		/**
+		 * Sets the offset that adjusts single line text in a text field with a bigger size.
+		 * <p>The sense of this value is to center the text vertically in the text field.</p>
+		 * 
+		 * @param singleLineOffsetY The offset in pixel which is used to adjust the vertical position of the label text.
+		 * @default 7
+		 */
+		public function set singleLineOffsetY( singleLineOffsetY : int ) : void
+		{
+			labelDecorator.singleLineOffsetY = singleLineOffsetY;
+		}
+		
+		/**
+		 * Returns the offset that adjusts single line text in a text field with a bigger size.
+		 * <p>The sense of this value is to center the text vertically in the text field.</p>
+		 * 
+		 * @return The offset in pixel which is used to adjust the vertical position of the label text.
+		 */
+		public function get singleLineOffsetY() : int
+		{
+			return labelDecorator.singleLineOffsetY;
+		}
+		
+		/**
+		 * Disposes the LabeledFrameButton.
+		 * <p>It cleans up everything and makes the LabeledFrameButton ready for 
+		 * Garbage Collection.</p>
+		 */
+		public override function dispose() : void
+		{
+			super.dispose();
+			labelDecorator.dispose();
+			labelDecorator = null;
+		}
+	}
+}

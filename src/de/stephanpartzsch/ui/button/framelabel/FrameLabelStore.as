@@ -22,7 +22,7 @@
  * @author Stephan Partzsch
  * http://www.stephan-partzsch.de
  */
-package de.stephanpartzsch.ui.button.label
+package de.stephanpartzsch.ui.button.framelabel
 {
 	import flash.display.FrameLabel;
 	import flash.display.MovieClip;
