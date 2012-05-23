@@ -27,13 +27,13 @@ package de.stephanpartzsch.ui.button
 	import de.stephanpartzsch.ui.button.error.MissingLabelError;
 	import de.stephanpartzsch.ui.button.event.FrameButtonEvent;
 	import de.stephanpartzsch.ui.button.event.FrameLabelEvent;
-	import de.stephanpartzsch.ui.button.label.FrameLabelController;
-	import de.stephanpartzsch.ui.button.label.enum.LabelName;
+	import de.stephanpartzsch.ui.button.framelabel.FrameLabelController;
+	import de.stephanpartzsch.ui.button.framelabel.enum.LabelName;
 	import de.stephanpartzsch.ui.shared.MovieClipDelegator;
-
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
 	import flash.utils.getTimer;
+
 	
 	/**
 	 * Dispatched when the enabled state of the <code>FrameButton</code> 

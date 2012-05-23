@@ -1,17 +1,15 @@
 package de.stephanpartzsch.ui.button.framelabel
 {
-	import flash.utils.Dictionary;
-
+	import de.stephanpartzsch.ui.button.framelabel.enum.LabelName;
 	import de.stephanpartzsch.ui.button.graphic.StandardTestButton;
-	import de.stephanpartzsch.ui.button.label.FrameLabelStore;
-	import de.stephanpartzsch.ui.button.label.Label;
-	import de.stephanpartzsch.ui.button.label.enum.LabelName;
-
+	import flash.display.MovieClip;
+	import flash.utils.Dictionary;
 	import org.flexunit.asserts.assertEquals;
 	import org.flexunit.asserts.assertFalse;
 	import org.flexunit.asserts.assertTrue;
 
-	import flash.display.MovieClip;
+
+
 
 	public class FrameLabelStoreTest
 	{

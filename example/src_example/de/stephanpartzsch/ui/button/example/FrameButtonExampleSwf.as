@@ -38,7 +38,7 @@ package de.stephanpartzsch.ui.button.example
 		{
 			buildActionButton();
 			buildFrameButton();
-			buildLabelFrameButton();
+			buildLabeledFrameButton();
 			buildToggleFrameButton();
 		}
 
@@ -82,12 +82,10 @@ package de.stephanpartzsch.ui.button.example
 			addChild( frameButton );
 		}
 		
-		private function buildLabelFrameButton() : void
+		private function buildLabeledFrameButton() : void
 		{
 			var buttonClass : Class = getDefinitionByName( "de.stephanpartzsch.ui.button.graphic.ExampleLabelButton" ) as Class;
-			var frameButton : FrameButton = FrameButton.createFromClass( buttonClass );
-			
-			labeledFrameButton = new LabeledFrameButton( frameButton, "Test" );
+			labeledFrameButton = LabeledFrameButton.createFromClass( buttonClass, "Test" );
 			labeledFrameButton.x = 200;
 			labeledFrameButton.y = 150;
 	

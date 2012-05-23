@@ -8,10 +8,15 @@ Some frame labels are required, but beside this, the button can be very simple w
 But the classical meaning of this library is represented by the `FrameButton`. It controls the graphical states of the button for `MOUSE.ROLL_OVER`, `MOUSE.ROLL_OUT`, `MOUSE.MOUSE_DOWN` and `MOUSE.MOUSE_UP` events as well as for a disabled state. If the graphical states for `MOUSE.ROLL_OVER` and `MOUSE.ROLL_OUT` events contain animations the library calculates the appropriate frame of the next label. This is done by taking the position of the playhead in the current label into consideration.
 Furthermore the library contains a `ToggleFrameButton` which handles a selection state in addition to the `FrameButton`. This class manages the graphical states for mouse events and the disabled state if the button is selected `true` or `false`.
 
+With `LabeledFrameButton` and `LabeledToggleFrameButton` a label text field can be set and managed. The text field has to have the name `labelText`. It is possible to place this text field directly on the timeline or wrap it in an other MovieClip named `textContainer`.
+Moreover the label text can be multilined. But if the label text has only one line, the vertical position can be adjusted with the property `singleLineOffsetY` to center the label text.
+
 The most important classes are:
 
 - FrameButton
 - ToggleFrameButton
+- LabeledFrameButton
+- LabeledToggleFrameButton
 
 
 ---   
@@ -48,8 +53,18 @@ Simple timeline representation of a `ToggleFrameButton`:
 			var toggleFrameButton : ToggleFrameButton = ToggleFrameButton.createFromClass( ExampleToggleButton );
 			addChild( toggleFrameButton );
 
+*LabeledFrameButton*
+
+			var labeledFrameButton : LabeledFrameButton = LabeledFrameButton.createFromClass( ExampleLabelButton, "Test" );
+			addChild( labeledFrameButton );
    
-The `FrameButton` as well as the `ToggleFrameButton` can be used like normal MovieClips because nearly everything is delegated to the graphical button representation which is managed by `FrameButton` or `ToggleFrameButton`.
+*LabeledToggleFrameButton*
+
+			var labeledToggleFrameButton : LabeledToggleFrameButton = LabeledToggleFrameButton.createFromClass( ExampleLabelButton, "Test" );
+			addChild( labeledToggleFrameButton );
+
+   
+The `FrameButton`, `ToggleFrameButton`, `LabeledFrameButton` as well as the `LabeledToggleFrameButton` can be used like normal MovieClips because nearly everything is delegated to the graphical button representation which is managed these button classes.
 
 			frameButton.x = 100;
 			frameButton.rotationX = 20;

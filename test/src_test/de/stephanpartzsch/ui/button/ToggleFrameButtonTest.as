@@ -1,15 +1,13 @@
 package de.stephanpartzsch.ui.button
 {
-	import de.stephanpartzsch.ui.button.label.enum.LabelName;
-	import org.flexunit.asserts.assertEquals;
+	import de.stephanpartzsch.ui.button.framelabel.enum.LabelName;
 	import de.stephanpartzsch.ui.button.graphic.FaultyToggleTestButton;
 	import de.stephanpartzsch.ui.button.graphic.StandardToggleTestButton;
-
+	import flash.display.MovieClip;
+	import org.flexunit.asserts.assertEquals;
 	import org.flexunit.asserts.assertFalse;
 	import org.flexunit.asserts.assertTrue;
 
-	import flash.display.MovieClip;
-	
 	public class ToggleFrameButtonTest
 	{
 		[Test]

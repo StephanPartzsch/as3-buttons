@@ -5,11 +5,12 @@
 <intAttribute key="AIR_VIEWER_CONF" value="0"/>
 <stringAttribute key="APP_ARGUMENTS" value=""/>
 <stringAttribute key="ARGUMENTS" value="-static-link-runtime-shared-libraries=true&#10;-target-player={playerVersion}&#10;-library-path+=&quot;{flexSDK}/frameworks/locale/en_US&quot;&#10;-default-size=550,400"/>
+<booleanAttribute key="DISABLE_COMPILE_PROCESS" value="false"/>
 <booleanAttribute key="KILL_PREVIOUS_VIEWER" value="true"/>
 <stringAttribute key="LAUNCHER_DEPENDENCIES" value="[Self]"/>
-<stringAttribute key="MAIN_CLASS" value="src_test/TestRunner.as"/>
+<stringAttribute key="MAIN_CLASS" value="test/src_test/TestRunner.as"/>
 <stringAttribute key="MOBILE_PRESET" value=""/>
-<stringAttribute key="OUTPUT" value="bin_test/TestRunner.swf"/>
+<stringAttribute key="OUTPUT" value="test/bin_test/TestRunner.swf"/>
 <booleanAttribute key="PASS_CP" value="true"/>
 <booleanAttribute key="PASS_EXTERNS" value="false"/>
 <booleanAttribute key="PASS_MAIN_CLASS" value="true"/>
@@ -22,7 +23,7 @@
 <stringAttribute key="PROJECT_NAME" value="as3-buttons"/>
 <stringAttribute key="PUBLISHER_ID" value=""/>
 <booleanAttribute key="START_SWF_ENABLED" value="true"/>
-<stringAttribute key="START_SWF_LOCATION" value="bin_test/TestRunner.swf"/>
+<stringAttribute key="START_SWF_LOCATION" value="test/bin_test/TestRunner.swf"/>
 <stringAttribute key="START_SWF_WITH" value="External SWF Viewer"/>
 <booleanAttribute key="USE_PROJECT_COMPILER_ARGUMENTS" value="true"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">

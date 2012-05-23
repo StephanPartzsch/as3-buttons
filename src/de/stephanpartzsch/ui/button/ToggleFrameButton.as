@@ -25,10 +25,10 @@
 package de.stephanpartzsch.ui.button
 {
 	import de.stephanpartzsch.ui.button.error.MissingLabelError;
-	import de.stephanpartzsch.ui.button.label.enum.LabelName;
-
+	import de.stephanpartzsch.ui.button.framelabel.enum.LabelName;
 	import flash.display.MovieClip;
 	import flash.events.MouseEvent;
+
 	
 	/**
 	 * The <code>ToggleFrameButton</code> is used to handle a button whose 

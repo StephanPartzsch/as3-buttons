@@ -28,9 +28,10 @@ package de.stephanpartzsch.ui.button
 	import flash.display.MovieClip;
 
 	/**
-	 * The <code>LabeledFrameButton</code> is used to handle a button whose 
+	 * The <code>LabeledToggleFrameButton</code> is used to handle a button whose 
 	 * visual states are represented by timeline animations. In addition to the 
-	 * functionality of the <code>FrameButton</code> it controlls a label text field.
+	 * functionality of the <code>ToggleFrameButton</code> it controlls a label 
+	 * text field.
 	 * 
 	 * <p>The TextField has to have the name <b>labelText</b>. It is possible to place 
 	 * this TextField directly on the timeline or wrap it in an other MovieClip named 
@@ -39,20 +40,20 @@ package de.stephanpartzsch.ui.button
 	 * line, the vertical position can be adjusted with the property 
 	 * <code>singleLineOffsetY</code>. The default value is 7.</p>
 	 * 
-	 * @see de.stephanpartzsch.ui.button.FrameButton
+	 * @see de.stephanpartzsch.ui.button.ToggleFrameButton
 	 */
-	public class LabeledFrameButton extends FrameButton
+	public class LabeledToggleFrameButton extends ToggleFrameButton
 	{
 		private var labelDecorator : LabelTextController;
-		
+
 		/**
-		 * Creates a new instance of type <code>LabeledFrameButton</code> with an instance 
+		 * Creates a new instance of type <code>LabeledToggleFrameButton</code> with an instance 
 		 * of the given buttonClass.
 		 * 
 		 * <p>The instance of the given buttonClass (the class should subclass 
 		 * <code>MovieClip</code>) has to contain all the required labels. It will be 
-		 * added to the display list of the <code>LabeledFrameButton</code> instance. Only the 
-		 * <code>LabeledFrameButton</code> instance itself has to be added to a display list 
+		 * added to the display list of the <code>LabeledToggleFrameButton</code> instance. Only the 
+		 * <code>LabeledToggleFrameButton</code> instance itself has to be added to a display list 
 		 * to make the button visible.</p>
 		 * 
 		 * <p>Required labels on timeline:</p>
@@ -61,7 +62,7 @@ package de.stephanpartzsch.ui.button
 		 * 	<li><i>default:</i> defines the 'common' state of the button</li> 
 		 * </ul> 
 		 * 
-		 * <p>All MovieClip based interaction with the <code>LabeledFrameButton</code> instance 
+		 * <p>All MovieClip based interaction with the <code>LabeledToggleFrameButton</code> instance 
 		 * will be delegated to the instance of the given buttonClass.</p>
 		 * 
 		 * <p>Optionally a heavy click protection can be enabled. This is done by waiting 
@@ -72,23 +73,23 @@ package de.stephanpartzsch.ui.button
 		 * this TextField directly on the timeline or wrap it in an other MovieClip named 
 		 * <b>textContainer</b>.</p>
 		 * 
-		 * @param buttonClass An instance of this class will be used with the new <code>LabeledFrameButton</code> instance.
+		 * @param buttonClass An instance of this class will be used with the new <code>LabeledToggleFrameButton</code> instance.
 		 * @param useHeavyClickPrevention Whether or not prevent heavy clicking. Default is <code>false</code>.
 		 *
-		 * @return A new instance of type <code>LabeledFrameButton</code>.
+		 * @return A new instance of type <code>LabeledToggleFrameButton</code>.
 		 * 
 		 * @throws de.stephanpartzsch.ui.button.error.MissingLabelError If one or more required lab is missing
 		 * @throws ReferenceError If no text field can be found in the given MovieClip instance.
 		 */
-		public static function createFromClass( buttonClass : Class, label : String = "", multilineEnabled : Boolean = false, useHeavyClickPrevention : Boolean = false ) : LabeledFrameButton
+		public static function createFromClass( buttonClass : Class, label : String = "", multilineEnabled : Boolean = false, useHeavyClickPrevention : Boolean = false ) : LabeledToggleFrameButton
 		{
 			var buttonInstance : MovieClip = new buttonClass();
 			
-			return new LabeledFrameButton( buttonInstance, label, multilineEnabled, useHeavyClickPrevention, true );
+			return new LabeledToggleFrameButton( buttonInstance, label, multilineEnabled, useHeavyClickPrevention, true );
 		}
 		
 		/**
-		 * Creates a new instance of type <code>LabeledFrameButton</code> with the given buttonInstance. 
+		 * Creates a new instance of type <code>LabeledToggleFrameButton</code> with the given buttonInstance. 
 		 * 
 		 * <p>The buttonInstance has to contain all the required labels and will not be added 
 		 * automatically to any display list. Therefore this object has to be added manually to a 
@@ -100,7 +101,7 @@ package de.stephanpartzsch.ui.button
 		 * 	<li><i>default:</i> defines the 'common' state of the button</li>
 		 * </ul> 
 		 * 
-		 * <p>All MovieClip based interaction with the <code>LabeledFrameButton</code> instance 
+		 * <p>All MovieClip based interaction with the <code>LabeledToggleFrameButton</code> instance 
 		 * will be delegated to the buttonInstance.</p>
 		 * 
 		 * <p>Optionally a heavy click protection can be enabled. This is done by waiting 
@@ -111,24 +112,24 @@ package de.stephanpartzsch.ui.button
 		 * this TextField directly on the timeline or wrap it in an other MovieClip named 
 		 * <b>textContainer</b>.</p>
 		 * 
-		 * @param buttonInstance The object that will be used with the new <code>LabeledFrameButton</code> instance.
+		 * @param buttonInstance The object that will be used with the new <code>LabeledToggleFrameButton</code> instance.
 		 * @param useHeavyClickPrevention Whether or not prevent heavy clicking. Default is <code>false</code>.
 		 *
-		 * @return A new instance of type <code>LabeledFrameButton</code>.
+		 * @return A new instance of type <code>LabeledToggleFrameButton</code>.
 		 * 
 		 * @throws de.stephanpartzsch.ui.button.error.MissingLabelError If one or more required lab is missing.
 		 * @throws ArgumentError If the given buttonInstance is <code>null</code>.
 		 * @throws ReferenceError If no text field can be found in the given MovieClip instance.
 		 */
-		public static function createFromInstance( buttonInstance : MovieClip, label : String = "", multilineEnabled : Boolean = false, useHeavyClickPrevention : Boolean = false ) : LabeledFrameButton
+		public static function createFromInstance( buttonInstance : MovieClip, label : String = "", multilineEnabled : Boolean = false, useHeavyClickPrevention : Boolean = false ) : LabeledToggleFrameButton
 		{
-			return new LabeledFrameButton( buttonInstance, label, multilineEnabled, useHeavyClickPrevention, false );
+			return new LabeledToggleFrameButton( buttonInstance, label, multilineEnabled, useHeavyClickPrevention, false );
 		}
 		
 		/**
-		 * Creates a new instance of type <code>LabeledFrameButton</code> with the given buttonInstance.
+		 * Creates a new instance of type <code>LabeledToggleFrameButton</code> with the given buttonInstance.
 		 * 
-		 * @param buttonInstance The object that will be used with the new <code>LabeledFrameButton</code> instance.
+		 * @param buttonInstance The object that will be used with the new <code>LabeledToggleFrameButton</code> instance.
 		 * @param label The label text that is to be used in the text field of <code>buttonInstance</code>.
 		 * @param multilineEnabled Whether or not the label text is to be used as multiline text. Default is <code>false</code>.
 		 * @param heavyClickProtectionEnabled Whether or not prevent heavy clicking. Default is <code>false</code>.
@@ -137,9 +138,9 @@ package de.stephanpartzsch.ui.button
 		 * @throws de.stephanpartzsch.ui.button.error.MissingLabelError If one or more required lab is missing
 		 * @throws ReferenceError If no text field can be found in the given MovieClip instance.
 		 */
-		public function LabeledFrameButton( buttonInstance : MovieClip, label : String = "", multilineEnabled : Boolean = false, heavyClickProtectionEnabled : Boolean = false, addToDisplayList : Boolean = false )
+		public function LabeledToggleFrameButton( buttonInstance : MovieClip, label : String = "", multilineEnabled : Boolean = false, heavyClickProtectionEnabled : Boolean = false, addToDisplayList : Boolean = false )
 		{
-			super( buttonInstance, heavyClickProtectionEnabled, addToDisplayList );	
+			super( buttonInstance, heavyClickProtectionEnabled, addToDisplayList );
 			labelDecorator = new LabelTextController( buttonInstance, label, multilineEnabled );
 		}
 		
@@ -167,8 +168,8 @@ package de.stephanpartzsch.ui.button
 		}
 		
 		/**
-		 * Disposes the LabeledFrameButton.
-		 * <p>It cleans up everything and makes the LabeledFrameButton ready for 
+		 * Disposes the LabeledToggleFrameButton.
+		 * <p>It cleans up everything and makes the LabeledToggleFrameButton ready for 
 		 * Garbage Collection.</p>
 		 */
 		public override function dispose() : void
