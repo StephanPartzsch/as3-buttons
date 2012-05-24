@@ -35,9 +35,8 @@ package de.stephanpartzsch.ui.button
 	 * <p>The TextField has to have the name <b>labelText</b>. It is possible to place 
 	 * this TextField directly on the timeline or wrap it in an other MovieClip named 
 	 * <b>textContainer</b>.</p>
-	 * <p>Moreover the label text can be multilined. If the label text has only one 
-	 * line, the vertical position can be adjusted with the property 
-	 * <code>singleLineOffsetY</code>. The default value is 7.</p>
+	 * <p>Moreover the label text can be centered vertically, if the text field is bigger
+	 * than required</p>
 	 * 
 	 * @see de.stephanpartzsch.ui.button.FrameButton
 	 */
@@ -73,6 +72,8 @@ package de.stephanpartzsch.ui.button
 		 * <b>textContainer</b>.</p>
 		 * 
 		 * @param buttonClass An instance of this class will be used with the new <code>LabeledFrameButton</code> instance.
+		 * @param label The label text that is to be used in the text field of <code>buttonInstance</code>.
+		 * @param centerTextVertically Whether or not the label text is to be centered vertically. Default is <code>false</code>.
 		 * @param useHeavyClickPrevention Whether or not prevent heavy clicking. Default is <code>false</code>.
 		 *
 		 * @return A new instance of type <code>LabeledFrameButton</code>.
@@ -80,11 +81,11 @@ package de.stephanpartzsch.ui.button
 		 * @throws de.stephanpartzsch.ui.button.error.MissingLabelError If one or more required lab is missing
 		 * @throws ReferenceError If no text field can be found in the given MovieClip instance.
 		 */
-		public static function createFromClass( buttonClass : Class, label : String = "", multilineEnabled : Boolean = false, useHeavyClickPrevention : Boolean = false ) : LabeledFrameButton
+		public static function createFromClass( buttonClass : Class, label : String = "", centerTextVertically : Boolean = false, useHeavyClickPrevention : Boolean = false ) : LabeledFrameButton
 		{
 			var buttonInstance : MovieClip = new buttonClass();
 			
-			return new LabeledFrameButton( buttonInstance, label, multilineEnabled, useHeavyClickPrevention, true );
+			return new LabeledFrameButton( buttonInstance, label, centerTextVertically, useHeavyClickPrevention, true );
 		}
 		
 		/**
@@ -112,6 +113,8 @@ package de.stephanpartzsch.ui.button
 		 * <b>textContainer</b>.</p>
 		 * 
 		 * @param buttonInstance The object that will be used with the new <code>LabeledFrameButton</code> instance.
+		 * @param label The label text that is to be used in the text field of <code>buttonInstance</code>.
+		 * @param centerTextVertically Whether or not the label text is to be centered vertically. Default is <code>false</code>.
 		 * @param useHeavyClickPrevention Whether or not prevent heavy clicking. Default is <code>false</code>.
 		 *
 		 * @return A new instance of type <code>LabeledFrameButton</code>.
@@ -120,9 +123,9 @@ package de.stephanpartzsch.ui.button
 		 * @throws ArgumentError If the given buttonInstance is <code>null</code>.
 		 * @throws ReferenceError If no text field can be found in the given MovieClip instance.
 		 */
-		public static function createFromInstance( buttonInstance : MovieClip, label : String = "", multilineEnabled : Boolean = false, useHeavyClickPrevention : Boolean = false ) : LabeledFrameButton
+		public static function createFromInstance( buttonInstance : MovieClip, label : String = "", centerTextVertically : Boolean = false, useHeavyClickPrevention : Boolean = false ) : LabeledFrameButton
 		{
-			return new LabeledFrameButton( buttonInstance, label, multilineEnabled, useHeavyClickPrevention, false );
+			return new LabeledFrameButton( buttonInstance, label, centerTextVertically, useHeavyClickPrevention, false );
 		}
 		
 		/**
@@ -130,40 +133,17 @@ package de.stephanpartzsch.ui.button
 		 * 
 		 * @param buttonInstance The object that will be used with the new <code>LabeledFrameButton</code> instance.
 		 * @param label The label text that is to be used in the text field of <code>buttonInstance</code>.
-		 * @param multilineEnabled Whether or not the label text is to be used as multiline text. Default is <code>false</code>.
+		 * @param centerTextVertically Whether or not the label text is to be centered vertically. Default is <code>false</code>.
 		 * @param heavyClickProtectionEnabled Whether or not prevent heavy clicking. Default is <code>false</code>.
 		 * @param addToDisplayList Whether or not adding the given buttonInstance to the display list of this LabeledFrameButton. Default is <code>false</code>.
 		 * 
 		 * @throws de.stephanpartzsch.ui.button.error.MissingLabelError If one or more required lab is missing
 		 * @throws ReferenceError If no text field can be found in the given MovieClip instance.
 		 */
-		public function LabeledFrameButton( buttonInstance : MovieClip, label : String = "", multilineEnabled : Boolean = false, heavyClickProtectionEnabled : Boolean = false, addToDisplayList : Boolean = false )
+		public function LabeledFrameButton( buttonInstance : MovieClip, label : String = "", centerTextVertically : Boolean = false, heavyClickProtectionEnabled : Boolean = false, addToDisplayList : Boolean = false )
 		{
 			super( buttonInstance, heavyClickProtectionEnabled, addToDisplayList );	
-			labelDecorator = new LabelTextController( buttonInstance, label, multilineEnabled );
-		}
-		
-		/**
-		 * Sets the offset that adjusts single line text in a text field with a bigger size.
-		 * <p>The sense of this value is to center the text vertically in the text field.</p>
-		 * 
-		 * @param singleLineOffsetY The offset in pixel which is used to adjust the vertical position of the label text.
-		 * @default 7
-		 */
-		public function set singleLineOffsetY( singleLineOffsetY : int ) : void
-		{
-			labelDecorator.singleLineOffsetY = singleLineOffsetY;
-		}
-		
-		/**
-		 * Returns the offset that adjusts single line text in a text field with a bigger size.
-		 * <p>The sense of this value is to center the text vertically in the text field.</p>
-		 * 
-		 * @return The offset in pixel which is used to adjust the vertical position of the label text.
-		 */
-		public function get singleLineOffsetY() : int
-		{
-			return labelDecorator.singleLineOffsetY;
+			labelDecorator = new LabelTextController( buttonInstance, label, centerTextVertically );
 		}
 		
 		/**

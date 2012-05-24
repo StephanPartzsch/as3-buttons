@@ -1,7 +1,7 @@
 package de.stephanpartzsch.ui.button.labeltext
 {
 	import de.stephanpartzsch.ui.button.event.FrameButtonEvent;
-	import de.stephanpartzsch.ui.button.graphic.ExampleLabelButton;
+	import de.stephanpartzsch.ui.button.graphic.BigLabelButton;
 
 	import org.flexunit.asserts.assertEquals;
 	import org.flexunit.asserts.assertFalse;
@@ -16,11 +16,28 @@ package de.stephanpartzsch.ui.button.labeltext
 		[Test]
 		public function test_constructor() : void
 		{
-			var buttonGraphic : MovieClip = new ExampleLabelButton();
-			var labelTextDecorator : LabelTextController = new LabelTextController( buttonGraphic, "text" );
+			var buttonGraphic : MovieClip = new BigLabelButton();
+			new LabelTextController( buttonGraphic, "text" );
 			
-			assertEquals( "unexpected value for singleLineOffsetY", 7, labelTextDecorator.singleLineOffsetY );
 			assertEquals( "unexpected text for label text field", "text", TextField( buttonGraphic["labelText"] ).text );
+			assertEquals( "unexpected vertical position for label text field", 20, TextField( buttonGraphic["labelText"] ).y );
+			
+			assertTrue( buttonGraphic.hasEventListener( MouseEvent.ROLL_OVER ) );
+			assertTrue( buttonGraphic.hasEventListener( MouseEvent.ROLL_OUT ) );
+			assertTrue( buttonGraphic.hasEventListener( MouseEvent.MOUSE_DOWN ) );
+			assertTrue( buttonGraphic.hasEventListener( MouseEvent.MOUSE_UP ) );
+			assertTrue( buttonGraphic.hasEventListener( FrameButtonEvent.DISABLED ) );
+			assertTrue( buttonGraphic.hasEventListener( FrameButtonEvent.ENABLED ) );
+		}
+		
+		[Test]
+		public function test_constructor_with_vertically_centered_text() : void
+		{
+			var buttonGraphic : MovieClip = new BigLabelButton();
+			new LabelTextController( buttonGraphic, "text", true );
+			
+			assertEquals( "unexpected text for label text field", "text", TextField( buttonGraphic["labelText"] ).text );
+			assertEquals( "unexpected vertical position for label text field", 60, TextField( buttonGraphic["labelText"] ).y );
 			
 			assertTrue( buttonGraphic.hasEventListener( MouseEvent.ROLL_OVER ) );
 			assertTrue( buttonGraphic.hasEventListener( MouseEvent.ROLL_OUT ) );
@@ -33,10 +50,9 @@ package de.stephanpartzsch.ui.button.labeltext
 		[Test]
 		public function test_constructor_with_no_label_text() : void
 		{
-			var buttonGraphic : MovieClip = new ExampleLabelButton();
-			var labelTextDecorator : LabelTextController = new LabelTextController( buttonGraphic, "" );
+			var buttonGraphic : MovieClip = new BigLabelButton();
+			new LabelTextController( buttonGraphic, "" );
 			
-			assertEquals( "unexpected value for singleLineOffsetY", 7, labelTextDecorator.singleLineOffsetY );
 			assertEquals( "unexpected text for label text field", "---", TextField( buttonGraphic["labelText"] ).text );
 			
 			assertFalse( buttonGraphic.hasEventListener( MouseEvent.ROLL_OVER ) );
@@ -58,9 +74,7 @@ package de.stephanpartzsch.ui.button.labeltext
 		public function test_constructor_with_no_label_text_and_no_label_text_field() : void
 		{
 			var buttonGraphic : MovieClip = new MovieClip();
-			var labelTextDecorator : LabelTextController = new LabelTextController( buttonGraphic, "" );
-			
-			assertEquals( "unexpected value for singleLineOffsetY", 7, labelTextDecorator.singleLineOffsetY );
+			new LabelTextController( buttonGraphic, "" );
 			
 			assertFalse( buttonGraphic.hasEventListener( MouseEvent.ROLL_OVER ) );
 			assertFalse( buttonGraphic.hasEventListener( MouseEvent.ROLL_OUT ) );
@@ -73,7 +87,7 @@ package de.stephanpartzsch.ui.button.labeltext
 		[Test]
 		public function test_dispose() : void
 		{
-			var buttonGraphic : MovieClip = new ExampleLabelButton();
+			var buttonGraphic : MovieClip = new BigLabelButton();
 			var labelTextDecorator : LabelTextController = new LabelTextController( buttonGraphic, "text" );
 			
 			labelTextDecorator.dispose();

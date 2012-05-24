@@ -9,7 +9,7 @@ But the classical meaning of this library is represented by the `FrameButton`. I
 Furthermore the library contains a `ToggleFrameButton` which handles a selection state in addition to the `FrameButton`. This class manages the graphical states for mouse events and the disabled state if the button is selected `true` or `false`.
 
 With `LabeledFrameButton` and `LabeledToggleFrameButton` a label text field can be set and managed. The text field has to have the name `labelText`. It is possible to place this text field directly on the timeline or wrap it in an other MovieClip named `textContainer`.
-Moreover the label text can be multilined. But if the label text has only one line, the vertical position can be adjusted with the property `singleLineOffsetY` to center the label text.
+Moreover the label text can be centered vertically, if the text field is bigger than required.
 
 The most important classes are:
 

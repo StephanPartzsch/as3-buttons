@@ -38,74 +38,33 @@ package de.stephanpartzsch.ui.button.labeltext
 	 * <p>The TextField has to have the name <b>labelText</b>. It is possible to place 
 	 * this TextField directly on the timeline or wrap it in an other MovieClip named 
 	 * <b>textContainer</b>.</p>
-	 * <p>Moreover the label text can be multilined. If the label text has only one 
-	 * line, the vertical position can be adjusted with the property 
-	 * <code>singleLineOffsetY</code>. The default value is 7.</p>
+	 * <p>Moreover the label text can be centered vertically, if the text field is bigger
+	 * than required.</p>
 	 */
 	public class LabelTextController
 	{
-		private static const SINGLE_LINE_OFFSET_Y : int = 7;
-
-		private var labelOffsetChanged : Boolean = false;
-		private var originalY : int = 0;
-
 		private var movieClip : MovieClip;
 		private var label : String;
-		private var multilineEnabled : Boolean;
-		private var _singleLineOffsetY : int;
+		private var centerTextVertically : Boolean;
 
 		/**
 		 * Creates a new instance of type <code>LabelTextController</code>.
 		 * 
 		 * @param movieClip	The MovieClip instance that contains the text field that is to be controlled.
 		 * @param label The label text that is to be used in the text field of <code>movieClip</code>.
-		 * @param multilineEnabled Whether or not the label text is to be used as multiline text. Default is <code>false</code>.
+		 * @param centerTextVertically Whether or not the label text is to be centered vertically. Default is <code>false</code>.
 		 * 
 		 * @throws ReferenceError If no text field can be found in the given MovieClip instance.
 		 */
-		public function LabelTextController( movieClip : MovieClip, label : String = "", multilineEnabled : Boolean = false )
+		public function LabelTextController( movieClip : MovieClip, label : String = "", centerTextVertically : Boolean = false )
 		{
 			this.label = label;
 			this.movieClip = movieClip;
-			this.multilineEnabled = multilineEnabled;
-			
-			singleLineOffsetY = SINGLE_LINE_OFFSET_Y;
+			this.centerTextVertically = centerTextVertically;
 
 			initialize();
 		}
-
-		private function initialize() : void
-		{
-			if ( !hasLabel )
-				return;
-
-			addEventListener();
-			updateLabel();
-		}
-
-		/**
-		 * Sets the offset that adjusts single line text in a text field with a bigger size.
-		 * <p>The sense of this value is to center the text vertically in the text field.</p>
-		 * 
-		 * @param singleLineOffsetY The offset in pixel which is used to adjust the vertical position of the label text.
-		 * @default 7
-		 */
-		public function set singleLineOffsetY( singleLineOffsetY : int ) : void
-		{
-			_singleLineOffsetY = singleLineOffsetY;
-		}
-
-		/**
-		 * Returns the offset that adjusts single line text in a text field with a bigger size.
-		 * <p>The sense of this value is to center the text vertically in the text field.</p>
-		 * 
-		 * @return The offset in pixel which is used to adjust the vertical position of the label text.
-		 */
-		public function get singleLineOffsetY() : int
-		{
-			return _singleLineOffsetY;
-		}
-
+		
 		/**
 		 * Disposes the LabelTextController.
 		 * <p>It cleans up everything and makes the LabelTextController ready for 
@@ -115,6 +74,15 @@ package de.stephanpartzsch.ui.button.labeltext
 		{
 			removeEventListener();
 			movieClip = null;
+		}
+
+		private function initialize() : void
+		{
+			if ( !hasLabel )
+				return;
+
+			addEventListener();
+			updateLabel();
 		}
 
 		private function get hasLabel() : Boolean
@@ -159,20 +127,10 @@ package de.stephanpartzsch.ui.button.labeltext
 
 		private function updateLabel() : void
 		{
-			if ( labelOffsetChanged )
-			{
-				labelTextField.y = originalY;
-				labelOffsetChanged = false;
-			}
-
 			labelTextField.htmlText = label;
 
-			if ( labelTextField.numLines < 2 && multilineEnabled )
-			{
-				originalY = labelTextField.y;
-				labelTextField.y = originalY + singleLineOffsetY;
-				labelOffsetChanged = true;
-			}
+			if ( centerTextVertically )
+				labelTextField.y += Math.round( ( labelTextField.height - labelTextField.textHeight ) * 0.5 );
 		}
 	}
 }
