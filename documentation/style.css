@@ -2,7 +2,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  ADOBE SYSTEMS INCORPORATED
-//  Copyright 2005-2007 Adobe Systems Incorporated
+//  Copyright 2005-2008 Adobe Systems Incorporated
 //  All Rights Reserved.
 //
 //  NOTICE: Adobe permits you to use, modify, and distribute this file
@@ -15,20 +15,20 @@
 	width: 100%;
 }
 .titleTableTitle {
+	white-space: nowrap;
 	padding-left: 15px;
 	padding-right: 5px;
 	font-size: 13px;
 	height: 44px;
 	background-image: url(images/titleTableTop.jpg);
 	background-repeat: repeat-x;
-	/* color:#62ABCD; */
 }
 .titleTableSearch {
 	white-space: nowrap;
 	background-image: url(images/titleTableTop.jpg);
 	background-repeat: repeat-x;
 	padding-right: 10px;
-	width: 50%;
+	width: 220;
 }
 .searchForm {
 	margin-top: 0px;
@@ -43,11 +43,9 @@
 	width: 76px;
 	height: 80px;
 	vertical-align: top;
-	background-image: url(images/logo.jpg);
-	background-repeat:no-repeat;
 }
 .titleTableRow2 {
-	/* color: #FFF; */
+	color: #000000;
 	height: 31px;
 	background-image: url(images/titleTableMiddle.jpg);
 	background-repeat: repeat-x;
@@ -58,7 +56,7 @@
 	padding-right: 5px;
 }
 .titleTableSubNav {
-	white-space: nowrap;
+	//white-space: nowrap;
 	font-size: 12px;
 }
 .titleTableRow3 {
@@ -114,7 +112,6 @@
 	margin-bottom: 10px;
 }
 .classFrameContent td {
-	background-color: #fefefe;/* !!!*/
 	white-space: nowrap;
 	padding-right: 5px;
 }
@@ -123,9 +120,9 @@
 	display: none;
 }
 	
-* html {
+/** html {
 	overflow-y:scroll;
-}
+}*/
 
 img {
 	border:0;
@@ -169,8 +166,8 @@ html>body .summaryTable {
 	margin-right: 10px;
 }
 .summaryTable th {
-	color: #F4F4F5; /* !!!*/
-	background-color: #4bc4fb;/* !!!*/
+	color: #FFFFFF;
+	background-color: #627C9D;
 	white-space: nowrap;
 }
 .summaryTable td {
@@ -351,8 +348,8 @@ html>body .summaryTable {
 
 body {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	color: #454545;
-	background-color: #FEFEFE;/* !!!*/
+	color: #000000;
+	background-color:#FFFFFF;
 	margin: 0px;
 	padding: 0px;
 }
@@ -376,14 +373,6 @@ pre {
 	font-size: 12px;
 }
 
-ul>li {
-	padding: 7px 0;	
-}
-
-ul>li>ul>li {
-	padding: 2px 0;	
-}
-
 th	{
 	text-align: left;
 	font-weight: bold;
@@ -391,7 +380,7 @@ th	{
 }
 
 table {
-	background-color: #fefefe; /* !!! */
+	background-color: white;
 }
 
 table.withBorder {
@@ -455,23 +444,23 @@ table.withBorder {
 
 /* Links */
 a:link {
-	color: #333333; 
+	color: #0000CC;
 	text-decoration: none;
 }
 
 a:visited {
-    color: #333333;
+    color: #0000CC;
 	text-decoration: none;
 }
 
 a:hover {
 	text-decoration: underline;
-	color: #4bc4fb; /* !!! */
+	color: #0000CC;
 }
 
 a:active {
 	text-decoration: none;
-	color: #4bc4fb; /* !!! */
+	color: #CC0000;
 }
 
 /* Headings */
@@ -517,15 +506,11 @@ h5 {
     color: #999999;
 }
 .flashonly {
-    display:none;
     color: #000000;
 }
 .flexonly {
+    display:none;
     color: #000000;
-}
-.flashOnlyX {
-	display:none;
-	color: #00CCFF;
 }
 .hide {
 	display:none;
@@ -576,65 +561,18 @@ html>body .listing pre
 	height:10px;
 }
 
-/* ADDITIONAL */
-/* Links */
-.titleTable a:link {
-	color: #4bc4fb;
-	text-decoration: none;
+.hideInheritedSkinState {
+	display: none;
 }
 
-.titleTable a:visited {
-    color: #4bc4fb;
-	text-decoration: none;
+.showInheritedSkinState {
+	display: inline;
 }
 
-.titleTable a:hover {
-	text-decoration: underline;
-	color: #4bc4fb;
+.hideInheritedSkinPart {
+	display: none;
 }
 
-.titleTable a:active {
-	text-decoration: none;
-	color: #AAA;
+.showInheritedSkinPart {
+	display: inline;
 }
-
-/* Links */
-.titleTableRow2 a:link {
-	color: #6a6a6a;
-	text-decoration: none;
-}
-
-.titleTableRow2 a:visited {
-    color: #6a6a6a;
-	text-decoration: none;
-}
-
-.titleTableRow2 a:hover {
-	text-decoration: underline;
-	color: #6a6a6a;
-}
-
-.titleTableRow2 a:active {
-	text-decoration: none;
-	color: #6a6a6a;
-}
-
-/* Class List */
-
-.classFrameContent {
-	background-color:#fefefe;
-	background-image: url(images/classFrameShadow.jpg);
-	background-repeat:repeat-x;
-	background-position:left top;
-	vertical-align: middle;
-	padding-top:1px;
-}
-
-.classFrameContent table {
-	background-color:#fefefe;	
-	margin-top: 20px;
-}
-
-.classFrameContent h3, .classFrameContent h3 a:link, .classFrameContent h3 a:hover, .classFrameContent h3 a:visited, .classFrameContent h3 a:active {
-	color:#333;
-} 
