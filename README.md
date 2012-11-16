@@ -70,3 +70,13 @@ The `FrameButton`, `ToggleFrameButton`, `LabeledFrameButton` as well as the `Lab
 	frameButton.rotationX = 20;
 	frameButton.addEventListener( MouseEvent.CLICK, handleFrameButtonClicked );
 	
+	
+	
+####Known issues####
+
+*Nested animations*
+
+If the button MovieClip contains a nested animation (another MovieClip) you have to make sure that this animation ends two frames before the label is over. 
+One empty label is required to reset the nested animation. Otherwise the nested animation will play only once.
+A different solution is to leave empty the first frame of the label that contains the nested animation.
+	
