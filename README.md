@@ -21,6 +21,7 @@ The most important classes are:
 
 ---   
    
+   
 ###Usage###
 
 
@@ -39,6 +40,7 @@ Typical timeline representation of a `ToggleFrameButton`:
 Simple timeline representation of a `ToggleFrameButton`:  
 ![Simple timeline representation of a ToggleFrameButton](https://github.com/StephanPartzsch/as3-buttons/blob/master/example/asset_example/graphic/simple_toggle_frame_button.png?raw=true  "Simple timeline representation of a ToggleFrameButton")
    
+
 
 
 ####Basic usage####
@@ -70,9 +72,11 @@ The `FrameButton`, `ToggleFrameButton`, `LabeledFrameButton` as well as the `Lab
 	frameButton.rotationX = 20;
 	frameButton.addEventListener( MouseEvent.CLICK, handleFrameButtonClicked );
 	
+
+- - -
 	
 	
-####Known issues####
+###Known issues###
 
 *Nested animations*
 
